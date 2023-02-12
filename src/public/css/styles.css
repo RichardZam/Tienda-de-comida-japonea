@@ -142,3 +142,37 @@ body {
   height: auto;
   border-radius: 12px;
 }
+.social-share {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.social-share a {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 0 10px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.social-share-icon.facebook {
+  background-color: #3b5998;
+}
+
+.social-share-icon.twitter {
+  background-color: #00acee;
+}
+
+.social-share-icon.pinterest {
+  background-color: #cb2027;
+}
+
+.social-share-icon.google-plus {
+  background-color: #dd4b39;
+}
+
+.social-share i {
+  margin-right: 10px;
+}
