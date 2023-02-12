@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head') %>
+</head>
+
+<body>
+    <%- include('partials/navegacion') %>
+    
+    <main class="vh.100 container pt-2 text-center display-flex justify-content-cennter align-items-center">
+        <section class="show-case">
+            <h2 class="display-1">Acerca de Nosotros</h2>
+            <div class="img-tienda">
+              <img src="img/tienda..jpg" alt="tienda">
+            </div>
+            
+            <p>Aplicacion web orientada a la venta de Comida Japonesa con un amplio 
+               catalogo de platos</p>
+               
+               <div class="container text-center">
+                <div class="row align-items-start">
+                  <div class="col">
+                    Compras
+                  </div>
+                  <div class="col">
+                    One of three columns
+                  </div>
+                  <div class="col">
+                    One of three columns
+                  </div>
+                </div>
+              </div>
+              
+        </section>
+    </main>
+   
+    <%- include('partials/footer') %>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  <script>ScrollReveal().reveal('.container');</script>
+</body>
+
+</html>

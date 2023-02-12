@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <%- include('partials/head') %>
+    
+</head>
+<body  style="overflow-y: scroll;">
+    <!--NAVEGACION-->
+    <%- include('partials/navegacion') %>
+
+    
+    <!--MENUS DE COMIDAS-->
+<section>
+    <div class="container"> 
+         <h1 class="text-center">
+          <span class="noto">⛩</span>
+          Platos de comidas 
+          <span class="noto">⛩</span>
+         </h1>
+    
+         <div id="product" >
+          <div class="product-card">
+          <div class="product-image">
+            <img src="img/miso-soup.jpg" alt="Miso-Soup">
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Miso Soup</h2>
+            <p class="product-description">La sopa de miso es una sopa japonesa preparada a base de un caldo dashi y pasta de miso, que le da nombre.​​​</p>
+            <p class="product-price">$5</p>
+              <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+         </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="img/tempura.jpg" alt="Tempura">
+            </div>
+            <div class="product-info">
+              <h2 class="product-name">Tempura</h2>
+              <p class="product-description">La tempura es un platillo frito japonés hecho con ingredientes como pescado, verduras y camarones empanados en una masa ligera y crujiente.</p>
+              <p class="product-price">$9</p>
+                <button class="add-to-cart-btn">Agregar al carrito</button>
+            </div>
+          </div>
+
+         <div class="product-card">
+          <div class="product-image">
+            <img src="img/ramen.jpg" alt="Ramen">
+          </div>
+          <div class="product-info">
+            <h2 class="product-name">Ramen</h2>
+            <p class="product-description"> El ramen es un platillo a base de fideos de trigo largos y gruesos servidos en un caldo espeso con ingredientes como carne, verduras y huevo. </p>
+            <p class="product-price">$12</p>
+              <button class="add-to-cart-btn">Agregar al carrito</button>
+          </div>
+         </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="img/teriyaki.png" alt="Teriyaki">
+            </div>
+            <div class="product-info">
+              <h2 class="product-name">Teriyaki</h2>
+              <p class="product-description"> El teriyaki es un platillo de carne marinada en una salsa dulce y umami y se sirve acompañado con arroz y verduras. </p>
+              <p class="product-price">$9</p>
+                <button class="add-to-cart-btn">Agregar al carrito</button>
+            </div>
+          </div>
+      
+          <div class="product-card">
+            <div class="product-image">
+              <img src="img/udon.jpg" alt="Udon">
+            </div>
+              <div class="product-info">
+                <h2 class="product-name">Udon</h2>
+                <p class="product-description">Los udon son fideos gruesos y suaves de trigo que se utilizan en diversos platillos japoneses, como sopa o salteados con verduras y carne.</p>
+                <p class="product-price">$11</p>
+                  <button class="add-to-cart-btn">Agregar al carrito</button>
+              </div>
+          </div>
+      
+          <div class="product-card">
+            <div class="product-image">
+              <img src="img/Sushi.jpg" alt="Sushi">
+            </div>
+            <div class="product-info">
+              <h2 class="product-name">Sushi</h2>
+              <p class="product-description">Un platillo tradicional japonés que consiste en arroz envinagrado con diversos ingredientes, como pescado crudo, verduras y algas. </p>
+              <p class="product-price">$10</p>
+              <button class="add-to-cart-btn">Agregar al carrito</button>
+            </div>
+          </div>
+          </div>
+       </div>
+</section>
+<!--SECCION DEL CARRITO DE COMPRAS-->
+<section>
+  <button id="show-cart-btn">Ver carrito</button>
+
+<div id="cart">
+  <h3>Carrito de compras</h3>
+  <ul id="cart-items">
+  </ul>
+  <p id="cart-total"></p>
+</div>
+</section>
+   <!--EL FOOTER-->
+   <%- include('partials/footer') %>
+
+   <!--Scripts para funcion del carrito sin base de datos porque Moongodb esta flojo-->
+   <script>
+    const productsContainer = document.querySelector("#product");
+    const showCartBtn = document.querySelector("#show-cart-btn");
+    const cart = document.querySelector("#cart");
+    const cartItems = document.querySelector("#cart-items");
+    const cartTotal = document.querySelector("#cart-total");
+  
+    let cartList = [];
+  
+    productsContainer.addEventListener("click", function(event) {
+      if (event.target.classList.contains("add-to-cart-btn")) {
+        const product = event.target.parentElement;
+        const productName = product.querySelector(".product-name").textContent;
+        const productPrice = product.querySelector(".product-price").textContent;
+  
+        const cartItem = {
+          name: productName,
+          price: productPrice
+        };
+  
+        cartList.push(cartItem);
+      }
+    });
+  
+    showCartBtn.addEventListener("click", function() {
+      cartItems.innerHTML = "";
+      let total = 0;
+      for (let i = 0; i < cartList.length; i++) {
+        const cartItem = cartList[i];
+        const li = document.createElement("li");
+        li.textContent = `${cartItem.name} - ${cartItem.price}`;
+        cartItems.appendChild(li);
+  
+        total += parseFloat(cartItem.price.substring(1));
+      }
+      cartTotal.textContent = `Total: $${total}`;
+      cart.style.display = "block";
+    });
+  </script>
+  
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>ScrollReveal().reveal('.product-card');</script>
+  <script>ScrollReveal().reveal('.text-center');</script>
+  
+</section>
+</body>
+</html>
