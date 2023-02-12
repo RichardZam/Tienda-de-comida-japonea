@@ -75,11 +75,7 @@ body {
     width: 100%;
   }
 }
-.img-tienda img {
-  width: 70%;
-  height: auto;
-  border-radius: 12px;
-}
+
 
 /**MODAL*/
 /* Estilo para el botón "Ver carrito" */
@@ -125,3 +121,24 @@ body {
   font-weight: bold;
 }
 
+
+/*CUSTOM ACERDA DE NOSOTROS*/
+.title-acerca-de {
+ color: #00bfff;
+ white-space: auto;
+ font-size: 1.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.descripcion-acerca-de {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.img-tienda img {
+  width: 70%;
+  height: auto;
+  border-radius: 12px;
+}
