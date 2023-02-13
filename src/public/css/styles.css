@@ -131,10 +131,8 @@ body {
   text-align: center;
 }
 .descripcion-acerca-de {
-  width: 50%;
-  padding: 20px;
-  text-align: center;
-
+  margin-top: 40px;
+  text-align: unset;
 }
 
 .img-tienda img {
@@ -142,6 +140,22 @@ body {
   height: auto;
   border-radius: 12px;
 }
+.github-avatar {
+  width: 198px;
+  height: 198px;
+  border-radius: 50%;
+  margin-bottom: 8px;
+  margin-left: 34px;
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .github-avatar {
+    width: 64px;
+    height: 64px;
+  }
+}
+
 
 /*REDES SOCIALES*/
 .social-icons {
@@ -170,4 +184,14 @@ body {
 
 .social-icons a:hover {
   color: #fff;
+}
+
+/*ESTILOS DEL FOOTER*/
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
 }
